@@ -12,7 +12,6 @@
                         <div class="col-8">
                             {{ __('Setup API Key') }}
                         </div>
-                     
                     </div>
                 </div>
                 <div class="card-body">
@@ -20,8 +19,10 @@
                         @csrf
                         <div class="row">
                             <div class="col-lg-6">
-                                <h6 class="heading-small text-muted mb-4">{{ __('API Key') }}</h6>
-                                @include('partials.input',['class'=>"col-12", 'ftype'=>'input','name'=>"API Key",'id'=>"api_key" ,'placeholder'=>"Enter API Key",'required'=>true, 'value'=>$api_key])
+                                <h6 class="heading-small text-muted mb-4">{{ __('Evolution API Key') }}</h6>
+                                @include('partials.input',['class'=>"col-12", 'ftype'=>'input','name'=>"Evolution API Key",'id'=>"evo_api_key" ,'placeholder'=>"Enter Evolution API Key",'required'=>true, 'value'=>config('whatsi.evo_api_key')])
+                                <h6 class="heading-small text-muted mb-4 mt-4">{{ __('Evolution Base URL') }}</h6>
+                                @include('partials.input',['class'=>"col-12", 'ftype'=>'input','name'=>"Evolution Base URL",'id'=>"evo_base_url" ,'placeholder'=>"Enter Evolution Base URL",'required'=>true, 'value'=>config('whatsi.evo_base_url')])
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-success mt-4">{{ __('Save') }}</button>
                                 </div>
@@ -29,22 +30,21 @@
                             <div class="col-lg-6">
                                 <h6 class="heading-small text-muted mb-4">{{ __('Get your clients notified via WhatsApp Automatically') }}</h6>
                                 
-                                <h5>How to get API Key?</h5>
-                                    <p>1. Go to <a href="{{ config('whatsi.url') }}" target="_blank"><mark> {{    config('whatsi.name',"What.si") }}</mark></a> and create an account</p>
-                                    <p>2. Go to <a href="{{ config('whatsi.url') }}/api/wpbox/info" target="_blank"><mark> {{  config('whatsi.name',"What.si") }}' API Dasboard<mark> </a> and get your API Key</p>
-                                    <p>3. Paste your API Key here</p>
+                                <h5>How to get Evolution API Key?</h5>
+                                <p>1. Go to <a href="{{ config('whatsi.evo_base_url') }}" target="_blank"><mark>Evolution API</mark></a> and create an account</p>
+                                <p>2. Generate your API Key in the Evolution API dashboard</p>
+                                <p>3. Paste your API Key and Base URL here</p>
                                 @isset($error)
-                                        <div class="alert alert-danger" role="alert">
-                                            {{ $error }}
-                                        </div>
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $error }}
+                                    </div>
                                 @endisset
 
                                 <br />
-                                    <h4>What data we send to the   <a href="{{ config('whatsi.url') }}" target="_blank"><mark> {{    config('whatsi.name',"What.si") }}</mark></a> API</h4>
-                                    <script src="{{ config('whatsi.info','https://gist.github.com/dimovdaniel/e0d2b1c146216491200bdba519dbb69f.js') }}"></script>
+                                <h4>What data we send to the Evolution API</h4>
+                                <script src="{{ config('whatsi.info','https://gist.github.com/dimovdaniel/e0d2b1c146216491200bdba519dbb69f.js') }}"></script>
                             </div>
                         </div>
-                       
                     </form>
                 </div>
             </div>
