@@ -142,4 +142,19 @@ class Main extends Provider
     {
         return [];
     }
+
+    /**
+     * Register WhatsApp Integration services.
+     *
+     * @return void
+     */
+    protected function registerWhatsAppIntegration()
+    {
+        $this->app->singleton('whatsapp.integration', function ($app) {
+            return new WhatsAppIntegration(
+                config('whatsi.evolution_api_key'),
+                config('whatsi.evolution_base_url')
+            );
+        });
+    }
 }
