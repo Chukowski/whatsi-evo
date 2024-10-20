@@ -55,7 +55,7 @@
         },
         {
             "name":"WhatsApp Setup",
-            "route":"whatsi.setup",
+            "route":"whatsi.api",
             "icon":"ni ni-settings-gear-65 text-blue"
         }
     ]
